@@ -7,6 +7,7 @@
  * echo $cd->cityNames; // Outputs list of cities in the database
  * echo $cd->cityDistance("Pori", "Helsinki"); // Outputs the distance between two cities in kilometers (374.92202880166)
  * echo $cd->distance(21.783, 61.483,  24.931,60.17); // Outputs the distance between two coordinates (lat, lng)
+ * echo $cd->getCityCoordinates("Pori"); // Outputs the coordinates of a city array(2) { [0]=> float(21.783) [1]=> float(61.483) }
  */
 
 class CityDistances {
@@ -61,5 +62,13 @@ class CityDistances {
         } else {
             return false;
         }
+    }
+    
+    public function getCityCoordinates($city) {
+        $city=mb_strtolower($city);
+        if(isset($this->cities[$city]))
+            return $this->cities[$city];
+        else
+            return false;
     }
 }
