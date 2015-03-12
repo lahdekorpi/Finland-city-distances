@@ -14,7 +14,7 @@ class CityDistances {
     public $cities;
     public $cityNames;
     
-    public function __construct($citiesFile="cities.csv", $cacheFile="cities.serialized") {
+    public function __construct($citiesFile="cities.tsv", $cacheFile="cities.serialized") {
         
         if(!file_exists($cacheFile)) {
             $cities=array();
